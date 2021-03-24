@@ -17,8 +17,12 @@ Do the following:
 
    HINT: no function required
 */
-
-
+let votingAge = 16;
+if (votingAge >= 18) {
+  console.log(true);
+} else {
+  console.log(false);
+}
 
 /*
 Task 1b - Values
@@ -30,10 +34,11 @@ Do the following:
 
    HINT: no function required
 */
-
-
-
-
+let val1 = 7;
+let val2 = 6;
+if (val1 != val2) {
+  console.log((val1 = val1 + val2));
+}
 
 /*
 Task 1c - Convert Strings to Numbers
@@ -45,9 +50,9 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
-
+const string = "1999";
+Number(string);
+console.log(string);
 
 /*
 Task 1d - Multiply
@@ -58,11 +63,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
-  }
-
-
+function multiply(a, b) {
+  return a * b;
+}
+console.log(multiply(4, 6));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -74,12 +78,10 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(age) {
+  return age * 7;
 }
-
-
-
+dogYears(34);
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 //Dog feeder - Depending on their weight and age, we need to know how many pounds of food to feed our dog each day!
@@ -105,13 +107,27 @@ Use the hungryDog function and feeding requirements below to do the following:
      7 - 12 months 4% of their body weight
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
+*/
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(weight, age) {
+  if (weight <= 5 && age >= 1) {
+    return weight * 0.05;
+  } else if (weight >= 6 && weight <= 10 && age >= 1) {
+    return weight * 0.04;
+  } else if (weight >= 11 && weight <= 15 && age >= 1) {
+    return weight * 0.03;
+  } else if (weight >= 15 && age >= 1) {
+    return weight * 0.02;
+  } else if (age >= 0.167 && age <= 0.333) {
+    return weight * 0.1;
+  } else if (age >= 0.333 && age <= 0.583) {
+    return weight * 0.05;
+  } else if (age >= 0.583 && age <= 1) {
+    return weight * 0.04;
   }
+}
 
-
+hungryDog(15, 1);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -133,17 +149,30 @@ Use the game function below to do the following:
   
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
-function game(user, computer){
-    /*add your code here*/
+let user = "rock";
+let computer = Math.floor(Math.random() * 3);
+if (computer === 1) {
+  console.log((computer = "rock"));
+} else if (computer === 2) {
+  console.log((computer = "paper"));
+} else {
+  console.log((computer = "scissors"));
 }
-  
-  
+function game(user, computer) {
+  if (computer === "scissors") {
+    return "You win!";
+  } else if (computer === "paper") {
+    return "You lose!";
+  } else if (user === "rock" && computer === "rock") {
+    return "It's a tie!";
+  }
+}
+game(user, computer);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
-//Metric Converter 
-//Task 5a - KM to Miles 
+//Metric Converter
+//Task 5a - KM to Miles
 /*
 Using the miles function below do the following:
   1. Receive a number of kilometers
@@ -151,12 +180,13 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
-
-
-
+function miles(km) {
+  const num = 0.621371;
+  const mi = km * num;
+  console.log(km * num);
+  return mi;
+}
+miles(16);
 //Task 5b - Feet to CM
 /*
 Using the feet function below do the following:
@@ -165,12 +195,11 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
-  }
- 
-
-
+function feet(c) {
+  const convert = c / 30.48;
+  return convert;
+}
+feet(200);
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Let's Sing 99 Bottles of Soda on the Wall!
@@ -181,10 +210,41 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
-  }
+function annoyingSong(number) {
+  while (number >= 1) {
+    if (number === 2) {
+      console.log(
+        `${number} 
+        bottles of soda on the wall,
+          ${number}
+          bottles of soda, take one down pass it around
+          ${number - 1} 
+          bottles of soda on the wall`
+      );
+    } else if (number === 1) {
+      console.log(
+        `${number}
+          bottle of soda on the wall,
+          ${number}
+          bottle of soda, take one down pass it around 
+          ${number - 1}
+          bottles of soda on the wall`
+      );
+    } else {
+      console.log(
+        `${number}
+          bottles of soda on the wall,
+          ${number}
+          bottles of soda, take one down pass it around 
+          ${number - 1}
+          bottles of soda on the wall`
+      );
+    }
 
+    number--;
+  }
+}
+console.log(annoyingSong(10));
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -200,13 +260,21 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
-  
-function grade(/*Your Code here */){
-  /*Your Code here */
-  }
-  
-  
 
+function grade(score) {
+  if (score >= 90 && score <= 100) {
+    return "you got an A";
+  } else if (score >= 80 && score <= 89) {
+    return "you got a B";
+  } else if (score >= 70 && score <= 79) {
+    return "you got a C";
+  } else if (score >= 60 && score <= 69) {
+    return "you got a D";
+  } else {
+    return "you got an F";
+  }
+}
+grade(98);
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
 //Vowel Counter - How many vowels are there?
@@ -219,27 +287,27 @@ Using the vowelCounter function below do the following:
   HINT - try looking up the .includes() method
 */
 
-
-function vowelCounter(/*add your code here*/) {
-    /*add your code here*/
+function vowelCounter(string) {
+  let count = Array.from(string).filter((letter) =>
+    "aeiouAEIOU".includes(letter)
+  ).length;
+  return `this string contains ${count} vowels`;
 }
-
-
-
+console.log(vowelCounter("I think I did it!"));
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-function foo(){
-    //console.log('its working');
-    return 'bar';
+function foo() {
+  //console.log('its working');
+  return "bar";
 }
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-export default{
-    foo,
-    multiply,
-    dogYears,
-    hungryDog,
-    game,
-    miles,
-    feet,
-    annoyingSong,
-    grade
-}
+export default {
+  foo,
+  multiply,
+  dogYears,
+  hungryDog,
+  game,
+  miles,
+  feet,
+  annoyingSong,
+  grade,
+};
